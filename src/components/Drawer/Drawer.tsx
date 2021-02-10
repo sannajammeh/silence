@@ -3,7 +3,6 @@ import { Document, IDocument, IDocumentsState } from "../../models/Document";
 import { debounce } from "../../utils/debounce";
 import classes from "./Drawer.module.scss";
 import { ItemInterface, ReactSortable } from "react-sortablejs";
-import createPersistedState from "use-persisted-state";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { mapOrder } from "../../utils/mapOrder";
 
@@ -12,8 +11,6 @@ interface Props {
   setDocument: (id: string, document: Partial<IDocument>) => void;
   setDocuments: React.Dispatch<React.SetStateAction<IDocumentsState>>;
 }
-
-const useOrder = createPersistedState("order");
 
 const Drawer: React.FC<Props> = ({ docState, setDocument, setDocuments }) => {
   const { docs } = docState;
