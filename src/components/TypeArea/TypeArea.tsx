@@ -1,5 +1,5 @@
 import classes from "./TypeArea.module.scss";
-import Quill, { Sources } from "quill";
+import Quill, { QuillOptionsStatic, Sources } from "quill";
 import Delta from "quill-delta";
 import { debounce } from "../../utils/debounce";
 import ReactQuill from "react-quill";
@@ -43,7 +43,7 @@ const TypeArea: React.FC<Props> = ({ doc, setDocument }) => {
 
 export default TypeArea;
 
-const quillOptions = {
+const quillOptions: QuillOptionsStatic = {
   theme: "bubble",
   placeholder: "Compose an epic...",
   modules: {
@@ -55,6 +55,7 @@ const quillOptions = {
       { header: 1 },
       { header: 2 },
       { header: 3 },
+      { header: 4 },
       { list: "ordered" },
       { list: "bullet" },
       // "task-list",
