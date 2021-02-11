@@ -38,13 +38,13 @@ const deepEqual = (a: any, b: any): boolean => {
   let keysA = Object.keys(a),
     keysB = Object.keys(b);
 
-  if (keysA.length != keysB.length) return false;
+  if (keysA.length !== keysB.length) return false;
 
   for (let key of keysA) {
     if (!keysB.includes(key)) return false;
 
     if (typeof a[key] === "function" || typeof b[key] === "function") {
-      if (a[key].toString() != b[key].toString()) return false;
+      if (a[key].toString() !== b[key].toString()) return false;
     } else {
       if (!deepEqual(a[key], b[key])) return false;
     }
