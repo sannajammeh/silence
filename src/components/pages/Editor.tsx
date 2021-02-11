@@ -1,14 +1,11 @@
 import Drawer from "../Drawer";
 import TypeArea from "../TypeArea";
-import createPersistedState from "use-persisted-state";
 import { Document, IDocument, IDocumentsState } from "../../models/Document";
 import { useSelector } from "../../predux/store";
 import { selectUser } from "../../predux/user/user.selectors";
 import { db } from "../../utils/firebase";
 import { useEffect, useState } from "react";
 import Spinner from "../Spinner";
-
-const useDocumentState = createPersistedState("documents");
 
 const startingDoc = new Document();
 
@@ -40,6 +37,7 @@ function useDocuments() {
     if (!user) return setLoading(false);
     setLoading(true);
     fetchDocuments();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   return { docs, loading, fetchDocuments };

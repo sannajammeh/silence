@@ -24,7 +24,7 @@ const Viewer = () => {
     return () => {
       ref.off("value");
     };
-  }, []);
+  }, [documentId, userId]);
 
   const setDocument = () => {};
 
