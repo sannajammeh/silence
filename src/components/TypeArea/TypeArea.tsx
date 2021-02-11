@@ -8,6 +8,7 @@ import { IDocument } from "../../models/Document";
 interface Props {
   doc: IDocument;
   setDocument: (id: string, document: Partial<IDocument>) => void;
+  readonly?: boolean;
 }
 
 type HandleChange = (
@@ -17,7 +18,7 @@ type HandleChange = (
   editor: Quill
 ) => void;
 
-const TypeArea: React.FC<Props> = ({ doc, setDocument }) => {
+const TypeArea: React.FC<Props> = ({ doc, setDocument, readonly }) => {
   const handleChange = debounce<HandleChange>(
     (_, __, source, editor: Quill) => {
       if (source !== "user") return;
@@ -32,6 +33,7 @@ const TypeArea: React.FC<Props> = ({ doc, setDocument }) => {
   return (
     <div className={classes.typeArea}>
       <ReactQuill
+        readOnly={readonly}
         className={classes.editor}
         {...quillOptions}
         value={doc.contents as any}

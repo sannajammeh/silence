@@ -3,10 +3,16 @@ import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter as Router } from "react-router-dom";
+import { PreduxProvider } from "./predux/Provider";
 
 ReactDOM.render(
   <StrictMode>
-    <App />
+    <PreduxProvider>
+      <Router>
+        <App />
+      </Router>
+    </PreduxProvider>
   </StrictMode>,
   document.getElementById("root")
 );

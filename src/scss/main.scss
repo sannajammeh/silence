@@ -1,3 +1,4 @@
+@import "~antd/dist/antd.dark.css";
 @import "./quill-task-list";
 
 :root {
@@ -5,7 +6,9 @@
 }
 
 * {
-  font-family: "Karla", sans-serif;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.4 !important;
+  letter-spacing: 0 !important;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -13,16 +16,21 @@
     width: 10px;
   }
   &::-webkit-scrollbar-track {
-    background: #121212;
+    background: #121212 !important;
   }
   &::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: #212121;
+    background-color: #212121 !important;
   }
 }
 
 html {
-  font-size: 24px;
+  font-size: 24px !important;
+  font-family: "Roboto", sans-serif !important;
+}
+
+button {
+  font-family: "Roboto", sans-serif !important;
 }
 
 html,
@@ -33,9 +41,13 @@ body,
   width: 100%;
 }
 
+li {
+  margin: initial;
+}
+
 body {
-  background: #121212;
-  color: var(--text-color);
+  background: #121212 !important;
+  color: var(--text-color) !important;
   margin: 0;
   display: flex;
   width: 100%;
