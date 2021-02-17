@@ -6,6 +6,7 @@ import { selectUser } from "../../predux/user/user.selectors";
 import { db } from "../../utils/firebase";
 import { useEffect, useState } from "react";
 import Spinner from "../Spinner";
+import { Helmet } from "react-helmet";
 
 const startingDoc = new Document();
 
@@ -63,6 +64,9 @@ const Editor = () => {
   if (loading) return <Spinner />;
   return (
     <>
+      <Helmet>
+        <title>{currentDoc.title}</title>
+      </Helmet>
       <Drawer
         docState={docState}
         setDocument={setDocument}

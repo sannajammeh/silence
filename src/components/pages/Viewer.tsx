@@ -4,6 +4,7 @@ import { IDocument } from "../../models/Document";
 import { db } from "../../utils/firebase";
 import Spinner from "../Spinner";
 import TypeArea from "../TypeArea";
+import { Helmet } from "react-helmet";
 
 const Viewer = () => {
   const [loading, setLoading] = useState(true);
@@ -41,6 +42,9 @@ const Viewer = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>{doc.title}</title>
+      </Helmet>
       <TypeArea doc={doc} setDocument={setDocument} readonly />
     </div>
   );
